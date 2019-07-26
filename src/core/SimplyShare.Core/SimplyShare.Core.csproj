@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SimplyShare.Core</AssemblyName>
+    <RootNamespace>SimplyShare.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BencodeNET" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>
