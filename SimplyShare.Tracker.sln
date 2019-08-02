@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F164FFA5-63A2-442D-A0B3-C49711A588F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyShare.Core", "src\core\SimplyShare.Core\SimplyShare.Core.csproj", "{723744A1-38BE-4206-83D6-3B93D4387ECF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3523837D-10BC-4EF8-953A-9B8B1949216B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyShare.Core.Test", "test\core\SimplyShare.Core.Test\SimplyShare.Core.Test.csproj", "{7D901A69-5065-4EB6-848A-B997CC588955}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyShare.Tracker", "src\tracker\SimplyShare.Tracker\SimplyShare.Tracker.csproj", "{3EBBE233-2279-488F-B665-ABF5C0C6F455}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplyShare.Tracker", "src\tracker\SimplyShare.Tracker\SimplyShare.Tracker.csproj", "{3EBBE233-2279-488F-B665-ABF5C0C6F455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyShare.Common", "src\common\SimplyShare.Common\SimplyShare.Common.csproj", "{631AFBD4-89E2-433D-B46A-97D8E1663E81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplyShare.Common.Test", "test\common\SimplyShare.Common.Test\SimplyShare.Common.Test.csproj", "{91ED3E3A-6EF4-4CEC-A214-AD88463896D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,26 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{723744A1-38BE-4206-83D6-3B93D4387ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{723744A1-38BE-4206-83D6-3B93D4387ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{723744A1-38BE-4206-83D6-3B93D4387ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{723744A1-38BE-4206-83D6-3B93D4387ECF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D901A69-5065-4EB6-848A-B997CC588955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D901A69-5065-4EB6-848A-B997CC588955}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D901A69-5065-4EB6-848A-B997CC588955}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D901A69-5065-4EB6-848A-B997CC588955}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EBBE233-2279-488F-B665-ABF5C0C6F455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EBBE233-2279-488F-B665-ABF5C0C6F455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EBBE233-2279-488F-B665-ABF5C0C6F455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EBBE233-2279-488F-B665-ABF5C0C6F455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631AFBD4-89E2-433D-B46A-97D8E1663E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631AFBD4-89E2-433D-B46A-97D8E1663E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631AFBD4-89E2-433D-B46A-97D8E1663E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631AFBD4-89E2-433D-B46A-97D8E1663E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91ED3E3A-6EF4-4CEC-A214-AD88463896D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91ED3E3A-6EF4-4CEC-A214-AD88463896D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91ED3E3A-6EF4-4CEC-A214-AD88463896D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91ED3E3A-6EF4-4CEC-A214-AD88463896D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{723744A1-38BE-4206-83D6-3B93D4387ECF} = {F164FFA5-63A2-442D-A0B3-C49711A588F0}
-		{7D901A69-5065-4EB6-848A-B997CC588955} = {3523837D-10BC-4EF8-953A-9B8B1949216B}
 		{3EBBE233-2279-488F-B665-ABF5C0C6F455} = {F164FFA5-63A2-442D-A0B3-C49711A588F0}
+		{631AFBD4-89E2-433D-B46A-97D8E1663E81} = {F164FFA5-63A2-442D-A0B3-C49711A588F0}
+		{91ED3E3A-6EF4-4CEC-A214-AD88463896D9} = {3523837D-10BC-4EF8-953A-9B8B1949216B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21CA6BBA-7FB0-4F63-923B-5A8E88A1E1C6}

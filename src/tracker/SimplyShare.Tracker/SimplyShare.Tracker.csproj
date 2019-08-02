@@ -12,12 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\core\SimplyShare.Core\SimplyShare.Core.csproj" />
+    <Folder Include="Models\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\..\common\SimplyShare.Common\SimplyShare.Common.csproj" />
   </ItemGroup>
 
 </Project>
