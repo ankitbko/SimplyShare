@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace SimplyShare.Core
 {
-    public class PrimarySeeder
+    public class User
     {
         public string Id { get; set; }
 
-        public MetaInfo MetaInfo { get; set; }
+        public string SecretHash { get; set; }
 
+        public UserAddress UserAddress { get; set; }
+    }
+
+    public class UserAddress
+    {
         public List<Address> Addresses { get; set; }
-
     }
 
     public class Address

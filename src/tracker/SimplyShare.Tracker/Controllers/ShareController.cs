@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SimplyShare.Common.Models;
 using SimplyShare.Core;
 
 namespace SimplyShare.Tracker.Controllers
@@ -13,7 +14,7 @@ namespace SimplyShare.Tracker.Controllers
     public class ShareController : ControllerBase
     {
         [HttpPost]
-        public ActionResult StartSharing(PrimarySeeder request)
+        public ActionResult StartSharing(ShareRequest request)
         {
             return NotFound();
         }
