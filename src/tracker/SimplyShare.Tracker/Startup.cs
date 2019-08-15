@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson.Serialization;
+using SimplyShare.Core;
 
 namespace SimplyShare.Tracker
 {
@@ -26,6 +28,17 @@ namespace SimplyShare.Tracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            ConfigureBsonClassMap();
+        }
+
+        private void ConfigureBsonClassMap()
+        {
+            BsonClassMap.RegisterClassMap<MetaInfo>(cm => {
+                cm.AutoMap();
+                cm.SetIsRootClass(true);
+            });
+            BsonClassMap.RegisterClassMap<SingleFileInfo>();
+            BsonClassMap.RegisterClassMap<MultipleFileInfo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
