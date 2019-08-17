@@ -1,5 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
+using SimplyShare.Common;
+using SimplyShare.Common.Models;
 using SimplyShare.Core;
 using System;
 using System.Collections.Generic;
@@ -22,5 +24,21 @@ namespace SimplyShare.Tracker.Models
         public SharingConfiguration SharingConfiguration { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public static SharingContext Create(ShareRequest shareRequest)
+        {
+            var context = new SharingContext();
+
+            context.MetaInfo = shareRequest.MetaInfo;
+            context.User = shareRequest.User;
+            context.SharingConfiguration = shareRequest.SharingConfiguration;
+            context.InfoHash = shareRequest.MetaInfo.Info.GetSHA1Hash();
+            context.CreatedOn = DateTime.UtcNow;
+
+            if (context.SharingConfiguration == null)
+                context.SharingConfiguration = new SharingConfiguration();
+
+            return context;
+        }
     }
 }

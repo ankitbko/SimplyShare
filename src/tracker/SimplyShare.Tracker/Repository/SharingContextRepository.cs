@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace SimplyShare.Tracker.Repository
 {
-    public class SharingContextRepository
+    public class SharingContextRepository : ISharingContextRepository
     {
         private const string COLLECTION_NAME = "share";
 
@@ -17,7 +17,7 @@ namespace SimplyShare.Tracker.Repository
             _collection = _mongoDatabase.GetCollection<SharingContext>(COLLECTION_NAME);
         }
 
-        public Task CreateSharingContextRepository(SharingContext context)
+        public Task CreateSharingContext(SharingContext context)
         {
             return _collection.InsertOneAsync(context);
         }
@@ -25,7 +25,9 @@ namespace SimplyShare.Tracker.Repository
         public async Task<SharingContext> GetSharingContextForUserByInfoHash(string userId, string infoHash)
         {
             var builder = Builders<SharingContext>.Filter;
-            var filter = builder.Eq(context => context.User.Id, userId) & builder.Eq(context => context.InfoHash, infoHash);
+            var filter = 
+                builder.Eq(context => context.User.Id, userId) 
+                & builder.Eq(context => context.InfoHash, infoHash);
             var result = await _collection.FindAsync(filter);
             return await result.FirstOrDefaultAsync();
         }
