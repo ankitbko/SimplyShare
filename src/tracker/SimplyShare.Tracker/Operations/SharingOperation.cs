@@ -15,11 +15,16 @@ namespace SimplyShare.Tracker.Operations
     public class SharingOperation : ISharingOperation
     {
         private readonly ISharingContextRepository _sharingRepository;
+        private readonly IValidator<ShareRequest> _shareRequestValidator;
         private readonly SharingOption _sharingOptions;
 
-        public SharingOperation(ISharingContextRepository sharingRepository, IOptions<SharingOption> sharingOptions)
+        public SharingOperation(
+            ISharingContextRepository sharingRepository,
+            IValidator<ShareRequest> shareRequestValidator,
+            IOptions<SharingOption> sharingOptions)
         {
             _sharingRepository = sharingRepository;
+            _shareRequestValidator = shareRequestValidator;
             _sharingOptions = sharingOptions.Value;
         }
 
@@ -30,8 +35,7 @@ namespace SimplyShare.Tracker.Operations
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var validator = new ShareRequestValidator();
-            await validator.ValidateAndThrowAsync(request, "default,write");
+            await _shareRequestValidator.ValidateAndThrowAsync(request, "default,write");
 
             var context = SharingContext.Create(request);
             var existing = await _sharingRepository.GetSharingContextForUserByInfoHash(request.User.Id, context.InfoHash);

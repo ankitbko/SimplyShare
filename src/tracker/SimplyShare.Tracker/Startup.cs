@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 using SimplyShare.Core;
+using SimplyShare.Tracker.Models;
 
 namespace SimplyShare.Tracker
 {
@@ -28,6 +29,7 @@ namespace SimplyShare.Tracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.Configure<SharingOption>(Configuration.GetSection("ShareConfig"));
             ConfigureBsonClassMap();
         }
 

@@ -8,6 +8,7 @@ using SimplyShare.Tracker.Exceptions;
 using SimplyShare.Tracker.Models;
 using SimplyShare.Tracker.Operations;
 using SimplyShare.Tracker.Repository;
+using SimplyShare.Tracker.Validators;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -18,13 +19,15 @@ namespace SimplyShare.Tracker.Test
     {
         private ISharingContextRepository _repository;
         private IOptions<SharingOption> _options;
+        private ShareRequestValidator _validator;
         private SharingOperation _operation;
 
         public SharingOperationTest()
         {
             _repository = A.Fake<ISharingContextRepository>();
             _options = A.Fake<IOptions<SharingOption>>();
-            _operation = new SharingOperation(_repository, _options);
+            _validator = new ShareRequestValidator();
+            _operation = new SharingOperation(_repository, _validator, _options);
         }
 
         [Fact]

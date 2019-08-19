@@ -18,13 +18,11 @@ namespace SimplyShare.Tracker.Controllers
     public class ShareController : ControllerBase
     {
         private readonly ISharingOperation _sharingOperation;
-        private readonly IValidator<ShareRequest> _shareRequestValidator;
         private readonly ILogger<ShareController> _logger;
 
-        public ShareController(ISharingOperation sharingOperation, IValidator<ShareRequest> shareRequestValidator, ILogger<ShareController> logger)
+        public ShareController(ISharingOperation sharingOperation, ILogger<ShareController> logger)
         {
             _sharingOperation = sharingOperation;
-            _shareRequestValidator = shareRequestValidator;
             _logger = logger;
         }
 
