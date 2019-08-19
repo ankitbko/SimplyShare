@@ -32,7 +32,7 @@ namespace SimplyShare.Tracker.Models
             context.MetaInfo = shareRequest.MetaInfo;
             context.User = shareRequest.User;
             context.SharingConfiguration = shareRequest.SharingConfiguration;
-            context.InfoHash = shareRequest.MetaInfo.Info.GetSHA1Hash();
+            context.InfoHash = shareRequest.MetaInfo?.Info?.GetSHA1Hash();
             context.CreatedOn = DateTime.UtcNow;
 
             if (context.SharingConfiguration == null)

@@ -31,14 +31,6 @@ namespace SimplyShare.Tracker.Controllers
         [HttpPost]
         public async Task<ActionResult> StartSharing(ShareRequest request)
         {
-            var validationResult = await _shareRequestValidator.ValidateAsync(request);
-            
-            if (!validationResult.IsValid)
-            {
-                _logger.LogWarning("Validation Failed. StartSharing. {validationResult}", validationResult);
-                return BadRequest(validationResult);
-            }
-
             try
             {
                 await _sharingOperation.StartSharing(request);
@@ -48,6 +40,12 @@ namespace SimplyShare.Tracker.Controllers
             {
                 _logger.LogError(exception, exception.Message);
                 return BadRequest("File is already shared by this user");
+            }
+            catch (ValidationException exception)
+            {
+                _logger.LogWarning("Validation Failed. StartSharing");
+                _logger.LogError(exception, exception.Message);
+                return BadRequest(exception.Errors);
             }
             catch (Exception exception)
             {
