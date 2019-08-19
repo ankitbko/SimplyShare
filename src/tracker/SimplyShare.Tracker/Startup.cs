@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,17 +31,16 @@ namespace SimplyShare.Tracker
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.Configure<SharingOption>(Configuration.GetSection("ShareConfig"));
+            services.Configure<CosmosOption>(Configuration.GetSection("Cosmos"));
             ConfigureBsonClassMap();
         }
 
-        private void ConfigureBsonClassMap()
+        public void ConfigureContainer(ContainerBuilder builder)
         {
-            BsonClassMap.RegisterClassMap<MetaInfo>(cm => {
-                cm.AutoMap();
-                cm.SetIsRootClass(true);
-            });
-            BsonClassMap.RegisterClassMap<SingleFileInfo>();
-            BsonClassMap.RegisterClassMap<MultipleFileInfo>();
+            var cosmosOption = new CosmosOption();
+            Configuration.GetSection("Cosmos").Bind(cosmosOption);
+            cosmosOption.MongoConnectionString = Configuration.GetConnectionString("MongoConnectionString");
+            builder.RegisterModule(new AutofacModule(cosmosOption));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +58,16 @@ namespace SimplyShare.Tracker
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void ConfigureBsonClassMap()
+        {
+            BsonClassMap.RegisterClassMap<MetaInfo>(cm => {
+                cm.AutoMap();
+                cm.SetIsRootClass(true);
+            });
+            BsonClassMap.RegisterClassMap<SingleFileInfo>();
+            BsonClassMap.RegisterClassMap<MultipleFileInfo>();
         }
     }
 }

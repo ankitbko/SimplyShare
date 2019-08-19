@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using SimplyShare.Tracker.Models;
 using System.Threading.Tasks;
 
@@ -6,15 +7,15 @@ namespace SimplyShare.Tracker.Repository
 {
     public class SharingContextRepository : ISharingContextRepository
     {
-        private const string COLLECTION_NAME = "share";
-
         private readonly IMongoDatabase _mongoDatabase;
+        private readonly CosmosOption _options;
         private readonly IMongoCollection<SharingContext> _collection;
 
-        public SharingContextRepository(IMongoDatabase mongoDatabase)
+        public SharingContextRepository(IMongoDatabase mongoDatabase, IOptions<CosmosOption> options)
         {
             _mongoDatabase = mongoDatabase;
-            _collection = _mongoDatabase.GetCollection<SharingContext>(COLLECTION_NAME);
+            _options = options.Value;
+            _collection = _mongoDatabase.GetCollection<SharingContext>(_options.CollectionName);
         }
 
         public Task CreateSharingContext(SharingContext context)
