@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 using SimplyShare.Core;
 using SimplyShare.Core.Models;
+using SimplyShare.Tracker.Formatters;
 using SimplyShare.Tracker.Models;
 
 namespace SimplyShare.Tracker
@@ -30,7 +31,13 @@ namespace SimplyShare.Tracker
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services
+                .AddMvc(options =>
+                {
+                    options.OutputFormatters.Insert(0, new BencodeOutputFormatter());
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.Configure<SharingOption>(Configuration.GetSection("ShareConfig"));
             services.Configure<CosmosOption>(Configuration.GetSection("Cosmos"));
             ConfigureBsonClassMap();
