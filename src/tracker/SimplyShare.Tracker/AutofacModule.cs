@@ -27,6 +27,11 @@ namespace SimplyShare.Tracker
                 .InstancePerLifetimeScope();
 
             builder
+                .RegisterType<Operations.Tracker>()
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            builder
                 .RegisterType<SharingContextRepository>()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();

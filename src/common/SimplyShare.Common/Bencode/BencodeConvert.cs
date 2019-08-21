@@ -60,7 +60,7 @@ namespace SimplyShare.Core
                 return CreateBNumber(Convert.ToInt32(value));
             if (type.Equals(typeof(long)))
                 return CreateBNumber(Convert.ToInt64(value));
-            if (typeof(ICollection).IsAssignableFrom(type))
+            if (typeof(ICollection).IsAssignableFrom(type) || typeof(IEnumerable).IsAssignableFrom(type))
                 return CreateBList(((IEnumerable)value).OfType<object>().Select(obj => (IBObject)GetBObjectFromValue(obj)));
             if (type.IsClass)
                 return SerializeClass(value);
