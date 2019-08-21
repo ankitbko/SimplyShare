@@ -1,6 +1,7 @@
 ﻿using FakeItEasy;
 using SimplyShare.Common.Models;
 using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using SimplyShare.Tracker.Models;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace SimplyShare.Tracker.Test
                 SharingConfiguration = new SharingConfiguration
                 {
                     Expiry = TimeSpan.FromDays(5),
-                    SharingScope = Core.SharingScope.Internal
+                    SharingScope = SharingScope.Internal
                 }
             };
 

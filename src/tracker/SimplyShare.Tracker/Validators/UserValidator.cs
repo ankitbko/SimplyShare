@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using System.Net;
 
 namespace SimplyShare.Tracker.Validators

@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.IdGenerators;
 using SimplyShare.Common;
 using SimplyShare.Common.Models;
-using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

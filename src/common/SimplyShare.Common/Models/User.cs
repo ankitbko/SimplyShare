@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace SimplyShare.Core
+namespace SimplyShare.Core.Models
 {
     public class User
     {

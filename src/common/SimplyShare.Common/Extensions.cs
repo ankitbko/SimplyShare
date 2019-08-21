@@ -1,4 +1,6 @@
-﻿using SimplyShare.Core;
+﻿using Microsoft.Extensions.Logging;
+using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -17,5 +19,7 @@ namespace SimplyShare.Common
                 return Encoding.UTF8.GetString(hash);
             }
         }
+
+        public static EventId GenerateEventId(this object @object) => new EventId(@object.GetHashCode());
     }
 }

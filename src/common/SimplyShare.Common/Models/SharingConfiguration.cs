@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimplyShare.Core
+namespace SimplyShare.Core.Models
 {
     public class SharingConfiguration
     {

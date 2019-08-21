@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SimplyShare.Core
+namespace SimplyShare.Core.Models
 {
     public class MetaInfo
     {

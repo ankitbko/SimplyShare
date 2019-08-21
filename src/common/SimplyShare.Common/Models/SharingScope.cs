@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SimplyShare.Core
+namespace SimplyShare.Core.Models
 {
     [Flags]
     public enum SharingScope

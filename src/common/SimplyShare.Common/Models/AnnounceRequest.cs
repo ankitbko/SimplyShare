@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SimplyShare.Core
+namespace SimplyShare.Core.Models
 {
     public class AnnounceRequest
     {

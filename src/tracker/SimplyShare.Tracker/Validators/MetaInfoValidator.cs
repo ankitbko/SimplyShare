@@ -1,6 +1,7 @@
 ﻿using Autofac.Features.Metadata;
 using FluentValidation;
 using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using System.Linq;
 
 namespace SimplyShare.Tracker.Validators

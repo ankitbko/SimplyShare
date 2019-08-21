@@ -3,7 +3,7 @@ using FluentAssertions;
 using FluentValidation;
 using Microsoft.Extensions.Options;
 using SimplyShare.Common.Models;
-using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using SimplyShare.Tracker.Exceptions;
 using SimplyShare.Tracker.Models;
 using SimplyShare.Tracker.Operations;
@@ -52,6 +52,17 @@ namespace SimplyShare.Tracker.Test
 
             act.Should().NotThrow<ValidationException>();
             act.Should().NotThrow<NullReferenceException>();
+        }
+
+        [Fact]
+        public void StartSharing_should_throw_ValidationException_if_secret_is_missing()
+        {
+            var request = ShareRequestFactory.CreateCompleteRequestForSingleFile();
+            request.User.SecretHash = null;
+
+            Func<Task> act = async () => await _operation.StartSharing(request);
+
+            act.Should().ThrowExactly<ValidationException>();
         }
 
         [Fact]

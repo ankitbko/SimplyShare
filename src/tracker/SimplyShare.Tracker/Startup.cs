@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
 using SimplyShare.Core;
+using SimplyShare.Core.Models;
 using SimplyShare.Tracker.Models;
 
 namespace SimplyShare.Tracker

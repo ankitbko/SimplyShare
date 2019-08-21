@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimplyShare.Core;
+using SimplyShare.Core.Models;
 
 namespace SimplyShare.Tracker.Controllers
 {
@@ -12,13 +13,6 @@ namespace SimplyShare.Tracker.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get([FromQuery] AnnounceRequest request)
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)

@@ -50,6 +50,10 @@ namespace SimplyShare.Tracker.Operations
             await _sharingRepository.CreateSharingContext(context);
         }
 
+        public Task<SharingContext> GetSharingContext(string userId, string infoHash) =>
+            _sharingRepository.GetSharingContextForUserByInfoHash(userId, infoHash);
+
+
         protected virtual void SanitizeSharingContext(SharingContext context)
         {
             if (context.SharingConfiguration.Expiry > _sharingOptions.MaxExpiry
