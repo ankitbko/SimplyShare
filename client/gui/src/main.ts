@@ -34,13 +34,13 @@ const createWindow = () => {
     mainWindow = null;
   });
 
-  // bgUploader = new BrowserWindow({
-  //   width: 0,
-  //   height: 0,
-  //   show: false
-  // });
+  bgUploader = new BrowserWindow({
+    width: 800,
+    height: 600,
+    show: true
+  });
 
-  // bgUploader.loadURL(BG_UPLOADER_WEBPACK_ENTRY);
+  bgUploader.loadURL(BG_UPLOADER_WEBPACK_ENTRY);
 };
 
 // This method will be called when Electron has finished
