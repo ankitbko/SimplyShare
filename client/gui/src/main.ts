@@ -37,7 +37,10 @@ const createWindow = () => {
   bgUploader = new BrowserWindow({
     width: 800,
     height: 600,
-    show: true
+    show: true,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   bgUploader.loadURL(BG_UPLOADER_WEBPACK_ENTRY);

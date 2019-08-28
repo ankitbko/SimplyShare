@@ -56,7 +56,7 @@
                   "name": "main_window"
                 },
                 {
-                  "html": "",
+                  "html": "./src/index.html",
                   "js": "./src/uploader.ts",
                   "name": "bg_uploader"
                 }

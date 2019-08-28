@@ -11,6 +11,9 @@ module.exports = {
   module: {
     rules
   },
+  resolve: {
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css']
+  },
   plugins: plugins,
   devtool: 'source-map'
 };
